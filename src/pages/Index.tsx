@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import CreatePostForm from "@/components/CreatePostForm";
-import ScheduledPosts from "@/components/ScheduledPosts";
+import CalendarView from "@/components/CalendarView";
 import { type ScheduledPost } from "@/types/post";
 
 const Index = () => {
@@ -25,7 +25,7 @@ const Index = () => {
             <CreatePostForm onPostScheduled={handlePostScheduled} />
           </div>
           <div>
-            <ScheduledPosts posts={scheduledPosts} />
+            <CalendarView posts={scheduledPosts} />
           </div>
         </div>
       </div>
