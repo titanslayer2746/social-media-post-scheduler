@@ -92,10 +92,15 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border selection:bg-purple-500/20 selection:text-white;
+    cursor: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI4IiBmaWxsPSIjOEI1Q0Y2IiBmaWxsLW9wYWNpdHk9IjAuNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjQiIGZpbGw9IiM4QjVDRjYiLz48L3N2Zz4="), auto;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+
+  .glass-panel {
+    @apply rounded-2xl border border-purple-400/20 bg-gray-800/50 p-6 shadow-xl backdrop-blur-lg transition-all hover:shadow-purple-500/10;
   }
 }
