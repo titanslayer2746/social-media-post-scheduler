@@ -14,17 +14,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h1 className="text-5xl font-bold text-center mb-12 text-black">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-center mb-8 text-purple-600">
           Social Media Scheduler
         </h1>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="glass-panel">
-            <h2 className="text-2xl font-bold mb-6 text-black">Create New Post</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Create New Post</h2>
             <CreatePostForm onPostScheduled={handlePostScheduled} />
           </div>
-          <div className="glass-panel">
+          <div>
             <CalendarView posts={scheduledPosts} />
           </div>
         </div>

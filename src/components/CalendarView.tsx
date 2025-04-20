@@ -24,21 +24,21 @@ const CalendarView = ({ posts }: CalendarViewProps) => {
     : [];
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-bold mb-6 text-black">Scheduled Posts Calendar</h2>
+    <div className="space-y-4">
+      <h2 className="text-2xl font-bold mb-4">Scheduled Posts Calendar</h2>
       <div className="flex justify-center">
         <Calendar
           mode="single"
           selected={selectedDate}
           onSelect={setSelectedDate}
-          className="rounded-xl border border-black/10 bg-white/50 p-4 shadow-xl backdrop-blur-lg transition-all hover:shadow-black/10"
+          className="rounded-md border p-3 pointer-events-auto"
           modifiers={{
             booked: getDatesWithPosts,
           }}
           modifiersStyles={{
             booked: {
-              backgroundColor: "rgba(0, 0, 0, 0.1)",
-              color: "#000",
+              backgroundColor: "#D3E4FD",
+              color: "#1e40af",
               fontWeight: "bold",
             },
           }}
@@ -46,22 +46,22 @@ const CalendarView = ({ posts }: CalendarViewProps) => {
       </div>
 
       <Dialog open={!!selectedDate} onOpenChange={() => setSelectedDate(undefined)}>
-        <DialogContent className="max-w-md bg-white/95 backdrop-blur-xl border border-black/10">
+        <DialogContent className="max-w-md">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-black">
+            <h3 className="text-lg font-semibold">
               Posts for {selectedDate ? format(selectedDate, "MMMM d, yyyy") : ""}
             </h3>
             {postsForSelectedDate.length === 0 ? (
               <p className="text-gray-500">No posts scheduled for this date.</p>
             ) : (
               postsForSelectedDate.map((post) => (
-                <Card key={post.id} className="p-4 bg-gray-50/50 border-black/10 hover:shadow-lg hover:shadow-black/10 transition-all duration-300">
-                  <p className="text-black mb-2">{post.content}</p>
+                <Card key={post.id} className="p-4">
+                  <p className="text-gray-600 mb-2">{post.content}</p>
                   <div className="flex gap-2">
                     {post.platforms.map((platform) => (
                       <span
                         key={platform}
-                        className="px-3 py-1 bg-black/10 text-black rounded-full text-sm capitalize hover:bg-black/20 transition-colors"
+                        className="px-2 py-1 bg-purple-100 text-purple-600 rounded-full text-sm capitalize"
                       >
                         {platform}
                       </span>
