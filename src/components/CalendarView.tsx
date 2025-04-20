@@ -25,19 +25,19 @@ const CalendarView = ({ posts }: CalendarViewProps) => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold mb-6 text-white">Scheduled Posts Calendar</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary-foreground">Scheduled Posts Calendar</h2>
       <div className="flex justify-center">
         <Calendar
           mode="single"
           selected={selectedDate}
           onSelect={setSelectedDate}
-          className="rounded-xl border border-purple-400/20 bg-gray-800/50 p-4 shadow-xl backdrop-blur-lg transition-all hover:shadow-purple-500/10"
+          className="rounded-xl border border-accent/20 bg-secondary/50 p-4 shadow-xl backdrop-blur-lg transition-all hover:shadow-accent/10"
           modifiers={{
             booked: getDatesWithPosts,
           }}
           modifiersStyles={{
             booked: {
-              backgroundColor: "rgba(139, 92, 246, 0.2)",
+              backgroundColor: "rgba(139, 92, 246, 0.3)",
               color: "#fff",
               fontWeight: "bold",
             },
@@ -46,28 +46,28 @@ const CalendarView = ({ posts }: CalendarViewProps) => {
       </div>
 
       <Dialog open={!!selectedDate} onOpenChange={() => setSelectedDate(undefined)}>
-        <DialogContent className="max-w-md bg-gray-800/95 backdrop-blur-xl border border-purple-400/20">
+        <DialogContent className="max-w-md bg-secondary/95 backdrop-blur-xl border border-accent/20">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-primary-foreground">
               Posts for {selectedDate ? format(selectedDate, "MMMM d, yyyy") : ""}
             </h3>
             {postsForSelectedDate.length === 0 ? (
-              <p className="text-gray-400">No posts scheduled for this date.</p>
+              <p className="text-muted-foreground">No posts scheduled for this date.</p>
             ) : (
               postsForSelectedDate.map((post) => (
-                <Card key={post.id} className="p-4 bg-gray-700/50 border-purple-400/20 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
-                  <p className="text-gray-200 mb-2">{post.content}</p>
+                <Card key={post.id} className="p-4 bg-muted/50 border-accent/20 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300">
+                  <p className="text-primary-foreground mb-2">{post.content}</p>
                   <div className="flex gap-2">
                     {post.platforms.map((platform) => (
                       <span
                         key={platform}
-                        className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm capitalize hover:bg-purple-500/30 transition-colors"
+                        className="px-3 py-1 bg-accent/20 text-accent-foreground rounded-full text-sm capitalize hover:bg-accent/30 transition-colors"
                       >
                         {platform}
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-400 mt-2">
+                  <p className="text-sm text-muted-foreground mt-2">
                     Scheduled for: {format(post.scheduledDate, "p")}
                   </p>
                 </Card>
