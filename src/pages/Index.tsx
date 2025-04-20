@@ -14,14 +14,14 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-secondary/40">
+    <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <h1 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-accent via-accent/80 to-accent/60 text-transparent bg-clip-text transition-all">
+        <h1 className="text-5xl font-bold text-center mb-12 text-black">
           Social Media Scheduler
         </h1>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="glass-panel">
-            <h2 className="text-2xl font-bold mb-6 text-primary-foreground">Create New Post</h2>
+            <h2 className="text-2xl font-bold mb-6 text-black">Create New Post</h2>
             <CreatePostForm onPostScheduled={handlePostScheduled} />
           </div>
           <div className="glass-panel">
